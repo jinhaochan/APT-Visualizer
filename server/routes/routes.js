@@ -8,6 +8,9 @@ router.get('/', function(req, res){
   res.render('index')
 });
 
+router.use(bodyParser.json())
+router.use(bodyParser.urlencoded({ extended: true }))
+
 router.route('/insert')
 .post(function(req,res) {
   var apt = new APT();
@@ -15,7 +18,7 @@ router.route('/insert')
   apt.name = req.body.name;
   apt.aliases = req.body.aliases;
   apt.targets = req.body.targets;
-  apt.associated_malware = req.body.malware;
+  apt.associated_malware = req.body.associated_malware;
   apt.vectors = req.body.vectors;
 
 apt.save(function(err) {
@@ -63,7 +66,7 @@ router.get('/getAll',function(req, res) {
    res.json(apt);
   });
  } else {
-  APT.find({name: name}, function(err, apt) {
+  APT.find(function(err, apt) {
    if (err)
     res.send(err);
    res.json(apt);

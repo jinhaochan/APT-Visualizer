@@ -48,7 +48,7 @@ onClick(e) {
 insertNewAPT(e) {
       axios.post('/insert',
         querystring.stringify({
-          desc: e.state.description,
+          description: e.state.description,
           name: e.state.name,
           aliases: e.state.aliases,
           targets: e.state.targets,

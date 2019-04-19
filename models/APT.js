@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var APTSchema = new Schema({
+var APT_Info = new Schema({
   description: String,
   name: String,
   aliases: String,
@@ -11,4 +11,4 @@ var APTSchema = new Schema({
   vectors: String
 });
 
-module.exports = mongoose.model('APT', APTSchema);
+module.exports = mongoose.model('APT_Info', APT_Info);

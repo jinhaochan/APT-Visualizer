@@ -37,7 +37,7 @@ render() {
           <tbody>
             {
               this.state.data.map(function(exp){
-                return  <tr><td className='counterCell'></td><td className='desc-col'>{exp.name}</td><td className='button-col'>{exp.description}</td><td className='button-col'>{exp.aliases}</td><td className='button-col'>{exp.targets}</td><td className='desc-col'>{exp.assocaited_malware}</td><td className='desc-col'>{exp.vectors}</td></tr>
+                return  <tr><td className='counterCell'></td><td className='desc-col'>{exp.name}</td><td className='button-col'>{exp.description}</td><td className='button-col'>{exp.aliases}</td><td className='button-col'>{exp.targets}</td><td className='desc-col'>{exp.associated_malware}</td><td className='desc-col'>{exp.vectors}</td></tr>
               })
             }
             </tbody>
