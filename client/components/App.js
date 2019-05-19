@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import SideBar from './sidebar';
+import MitreTable from './mitretable';
 
 export default class App extends React.Component {
 
@@ -11,9 +12,12 @@ render() {
       <div id="App">
       <SideBar />
       <div id="page-wrap">
-	    <h1>Visualize APTs</h1>
-        <h2>Select APT from the side bar</h2>
+	    <h1>EXTERMITRE </h1>
+        <h3>Select an APT from the side bar</h3>
+
+
       </div>
+      <MitreTable />
     </div>
     );
 }

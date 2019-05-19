@@ -132,3 +132,13 @@ body {
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
 }
+
+.matrix-tactics-url {
+  color: #27314c;
+  font-size: 16px;
+}
+
+.technique-mapping {
+  color: #385093;
+  font-size: 15px;
+}
