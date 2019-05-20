@@ -142,3 +142,7 @@ body {
   color: #385093;
   font-size: 15px;
 }
+
+.inlineblock {
+  display: inline-block;
+}
