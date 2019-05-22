@@ -1,0 +1,23 @@
+name,ID
+Commonly Used Port,T1043
+Communication Through Removable Media,T1092
+Connection Proxy,T1090
+Custom Command and Control Protocol,T1094
+Custom Cryptographic Protocol,T1024
+Data Encoding,T1132
+Data Obfuscation,T1001
+Domain Fronting,T1172
+Domain Generation Algorithms,T1483
+Fallback Channels,T1008
+Multi-hop Proxy,T1188
+Multi-Stage Channels,T1104
+Multiband Communication,T1026
+Multilayer Encryption,T1079
+Port Knocking,T1205
+Remote Access Tools,T1219
+Remote File Copy,T1105
+Standard Application Layer Protocol,T1071
+Standard Cryptographic Protocol,T1032
+Standard Non-Application Layer Protocol,T1095
+Uncommonly Used Port,T1065
+Web Service,T1102

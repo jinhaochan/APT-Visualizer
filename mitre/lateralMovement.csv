@@ -1,0 +1,18 @@
+name,ID
+AppleScript,T1155
+Application Deployment Software,T1017
+Distributed Component Object Model,T1175
+Exploitation of Remote Services,T1210
+Logon Scripts,T1037
+Pass the Hash,T1075
+Pass the Ticket,T1097
+Remote Desktop Protocol,T1076
+Remote File Copy,T1105
+Remote Services,T1021
+Replication Through Removable Media,T1091
+Shared Webroot,T1051
+SSH Hijacking,T1184
+Taint Shared Content,T1080
+Third-party Software,T1072
+Windows Admin Shares,T1077
+Windows Remote Management,T1028

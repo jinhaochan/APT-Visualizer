@@ -1,0 +1,29 @@
+name,ID
+Access Token Manipulation,T1134
+Accessibility Features,T1015
+AppCert DLLs,T1182
+AppInit DLLs,T1103
+Application Shimming,T1138
+Bypass User Account Control,T1088
+DLL Search Order Hijacking,T1038
+Dylib Hijacking,T1157
+Exploitation for Privilege Escalation,T1068
+Extra Window Memory Injection,T1181
+File System Permissions Weakness,T1044
+Hooking,T1179
+Image File Execution Options Injection,T1183
+Launch Daemon,T1160
+New Service,T1050
+Path Interception,T1034
+Plist Modification,T1150
+Port Monitors,T1013
+Process Injection,T1055
+Scheduled Task,T1053
+Service Registry Permissions Weakness,T1058
+Setuid and Setgid,T1166
+SID-History Injection,T1178
+Startup Items,T1165
+Sudo,T1169
+Sudo Caching,T1206
+Valid Accounts,T1078
+Web Shell,T1100

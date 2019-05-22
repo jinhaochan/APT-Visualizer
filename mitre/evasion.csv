@@ -1,0 +1,68 @@
+name,ID
+Access Token Manipulation,T1134
+Binary Padding,T1009
+BITS Jobs,T1197
+Bypass User Account Control,T1088
+Clear Command History,T1146
+CMSTP,T1191
+Code Signing,T1116
+Compile After Delivery,T1500
+Compiled HTML File,T1223
+Component Firmware,T1109
+Component Object Model Hijacking,T1122
+Control Panel Items,T1196
+DCShadow,T1207
+Deobfuscate/Decode Files or Information,T1140
+Disabling Security Tools,T1089
+DLL Search Order Hijacking,T1038
+DLL Side-Loading,T1073
+Execution Guardrails,T1480
+Exploitation for Defense Evasion,T1211
+Extra Window Memory Injection,T1181
+File Deletion,T1107
+File Permissions Modification,T1222
+File System Logical Offsets,T1006
+Gatekeeper Bypass,T1144
+Group Policy Modification,T1484
+Hidden Files and Directories,T1158
+Hidden Users,T1147
+Hidden Window,T1143
+HISTCONTROL,T1148
+Image File Execution Options Injection,T1183
+Indicator Blocking,T1054
+Indicator Removal from Tools,T1066
+Indicator Removal on Host,T1070
+Indirect Command Execution,T1202
+Install Root Certificate,T1130
+InstallUtil,T1118
+Launchctl,T1152
+LC_MAIN Hijacking,T1149
+Masquerading,T1036
+Modify Registry,T1112
+Mshta,T1170
+Network Share Connection Removal,T1126
+NTFS File Attributes,T1096
+Obfuscated Files or Information,T1027
+Plist Modification,T1150
+Port Knocking,T1205
+Process Doppelgänging,T1186
+Process Hollowing,T1093
+Process Injection,T1055
+Redundant Access,T1108
+Regsvcs/Regasm,T1121
+Regsvr32,T1117
+Rootkit,T1014
+Rundll32,T1085
+Scripting,T1064
+Signed Binary Proxy Execution,T1218
+Signed Script Proxy Execution,T1216
+SIP and Trust Provider Hijacking,T1198
+Software Packing,T1045
+Space after Filename,T1151
+Template Injection,T1221
+Timestomp,T1099
+Trusted Developer Utilities,T1127
+Valid Accounts,T1078
+Virtualization/Sandbox Evasion,T1497
+Web Service,T1102
+XSL Script Processing,T1220

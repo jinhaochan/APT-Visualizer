@@ -1,0 +1,15 @@
+name,ID
+Data Destruction,T1485
+Data Encrypted for Impact,T1486
+Defacement,T1491
+Disk Content Wipe,T1488
+Disk Structure Wipe,T1487
+Endpoint Denial of Service,T1499
+Firmware Corruption,T1495
+Inhibit System Recovery,T1490
+Network Denial of Service,T1498
+Resource Hijacking,T1496
+Runtime Data Manipulation,T1494
+Service Stop,T1489
+Stored Data Manipulation,T1492
+Transmitted Data Manipulation,T1493

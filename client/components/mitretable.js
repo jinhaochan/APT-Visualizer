@@ -5,8 +5,8 @@ import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import Modal from 'react-modal';
 
-import TA0001 from './TA0001' 
-import TA0002 from './TA0002' 
+import TA0001 from './fragments/TA0001' 
+import TA0002 from './fragments/TA0002' 
 
 class MitreTable extends React.Component {
   constructor(...args) {
@@ -14,27 +14,100 @@ class MitreTable extends React.Component {
 
     this.state = { TA0001: false,
 	           TA0002: false,
-	           headerData: []
+	           headerData: [],
+  	         TA0001Data: [],
+	           TA0002Data: [],
+	           TA0003Data: [],
+	           TA0004Data: [],
+	           TA0005Data: [],
+	           TA0006Data: [],
+	           TA0007Data: [],
+	           TA0008Data: [],
+	           TA0009Data: [],
+	           TA0010Data: [],
+	           TA0011Data: [],
+	           TA0040Data: [],
                  };
 
-    this.getHeaderData = this.getHeaderData.bind(this);
+    this.getData = this.getData.bind(this);
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
 
   }
 
 componentDidMount() {
-    this.getHeaderData(this, 'All');
+    this.getData(this, 'All');
 }
 
 componentWillReceiveProps(nextProps) {
-    this.getHeaderData(this, 'All');
+    this.getData(this, 'All');
 }
 
-getHeaderData(ev, name){
+getData(ev, name){
+
     axios.get('/getHeader')
       .then(function(response) {
         ev.setState({headerData: response.data});
+      });
+
+    axios.get('/getInitialAccess')
+      .then(function(response) {
+        ev.setState({TA0001Data: response.data});
+      });
+
+    axios.get('/getExecution')
+      .then(function(response) {
+        ev.setState({TA0002Data: response.data});
+      });
+
+    axios.get('/getPersistence')
+      .then(function(response) {
+        ev.setState({TA0003Data: response.data});
+      });
+
+    axios.get('/getPrivilegeEscalation')
+      .then(function(response) {
+        ev.setState({TA0004Data: response.data});
+      });
+
+    axios.get('/getDefenseEvasion')
+      .then(function(response) {
+        ev.setState({TA0005Data: response.data});
+      });
+
+    axios.get('/getCredentialAccess')
+      .then(function(response) {
+        ev.setState({TA0006Data: response.data});
+      });
+
+    axios.get('/getDiscovery')
+      .then(function(response) {
+        ev.setState({TA0007Data: response.data});
+      });
+
+    axios.get('/getLateralMovement')
+      .then(function(response) {
+        ev.setState({TA0008Data: response.data});
+      });
+
+    axios.get('/getCollection')
+      .then(function(response) {
+        ev.setState({TA0009Data: response.data});
+      });
+
+    axios.get('/getExfiltration')
+      .then(function(response) {
+        ev.setState({TA0010Data: response.data});
+      });
+
+    axios.get('/getCommandControl')
+      .then(function(response) {
+        ev.setState({TA0011Data: response.data});
+      });
+
+    axios.get('/getImpact')
+      .then(function(response) {
+        ev.setState({TA0040Data: response.data});
       });
 }
 
@@ -71,8 +144,11 @@ render(){
                       </tr>
                       </thead>
                       <tbody>
-                      <tr><td ><a class="technique-mapping" id="v-Drive-by Compromise-initial access-tab" href="/techniques/T1189">Drive-by Compromise</a></td>
+			{ this.state[exp.ID + "Data"].map(function(data){
+				return [
+                      <tr><td ><a class="technique-mapping" href="#" >{data.name}</a></td>
                      </tr>
+				] }, this)}
                      </tbody>
                      </Table>
                    </div>
