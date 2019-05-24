@@ -135,14 +135,14 @@ body {
 
 .matrix-tactics-url {
   color: #27314c;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .technique-mapping {
   color: #385093;
-  font-size: 15px;
+  font-size: 12px;
 }
 
-.inlineblock {
-  float: left;
+.cell {
+  width:100px;
 }

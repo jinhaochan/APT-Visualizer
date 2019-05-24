@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
+import Jumbotron from 'react-bootstrap/Jumbotron';
 import Modal from 'react-modal';
 
 import TA0001 from './fragments/TA0001' 
@@ -15,18 +16,7 @@ class MitreTable extends React.Component {
     this.state = { TA0001: false,
 	           TA0002: false,
 	           headerData: [],
-  	         TA0001Data: [],
-	           TA0002Data: [],
-	           TA0003Data: [],
-	           TA0004Data: [],
-	           TA0005Data: [],
-	           TA0006Data: [],
-	           TA0007Data: [],
-	           TA0008Data: [],
-	           TA0009Data: [],
-	           TA0010Data: [],
-	           TA0011Data: [],
-	           TA0040Data: [],
+	           mitreData: []
                  };
 
     this.getData = this.getData.bind(this);
@@ -45,70 +35,67 @@ componentWillReceiveProps(nextProps) {
 
 getData(ev, name){
 
-    axios.get('/getHeader')
-      .then(function(response) {
-        ev.setState({headerData: response.data});
-      });
-
-    axios.get('/getInitialAccess')
-      .then(function(response) {
-        ev.setState({TA0001Data: response.data});
-      });
-
-    axios.get('/getExecution')
-      .then(function(response) {
-        ev.setState({TA0002Data: response.data});
-      });
-
-    axios.get('/getPersistence')
-      .then(function(response) {
-        ev.setState({TA0003Data: response.data});
-      });
-
-    axios.get('/getPrivilegeEscalation')
-      .then(function(response) {
-        ev.setState({TA0004Data: response.data});
-      });
-
-    axios.get('/getDefenseEvasion')
-      .then(function(response) {
-        ev.setState({TA0005Data: response.data});
-      });
-
-    axios.get('/getCredentialAccess')
-      .then(function(response) {
-        ev.setState({TA0006Data: response.data});
-      });
-
-    axios.get('/getDiscovery')
-      .then(function(response) {
-        ev.setState({TA0007Data: response.data});
-      });
-
-    axios.get('/getLateralMovement')
-      .then(function(response) {
-        ev.setState({TA0008Data: response.data});
-      });
-
-    axios.get('/getCollection')
-      .then(function(response) {
-        ev.setState({TA0009Data: response.data});
-      });
-
-    axios.get('/getExfiltration')
-      .then(function(response) {
-        ev.setState({TA0010Data: response.data});
-      });
-
-    axios.get('/getCommandControl')
-      .then(function(response) {
-        ev.setState({TA0011Data: response.data});
-      });
-
+    axios.all([
+    axios.get('/getHeader'),
+    axios.get('/getInitialAccess'),
+    axios.get('/getExecution'),
+    axios.get('/getPersistence'),
+    axios.get('/getPrivilegeEscalation'),
+    axios.get('/getDefenseEvasion'),
+    axios.get('/getCredentialAccess'),
+    axios.get('/getDiscovery'),
+    axios.get('/getLateralMovement'),
+    axios.get('/getCollection'),
+    axios.get('/getExfiltration'),
+    axios.get('/getCommandControl'),
     axios.get('/getImpact')
-      .then(function(response) {
-        ev.setState({TA0040Data: response.data});
-      });
+    ])
+    .then(axios.spread((header, access, execution, persistence, escalation
+	    , evasion, credential, discovery, lateral, collection, exfiltration
+	    , command, impact) => {
+
+                this.setState({headerData: header.data});
+
+                this.setState({
+		    mitreData: this.state.mitreData.concat([access.data])
+         	});
+                this.setState({
+		    mitreData: this.state.mitreData.concat([execution.data])
+         	});
+                this.setState({
+		    mitreData: this.state.mitreData.concat([persistence.data])
+         	});
+                this.setState({
+		    mitreData: this.state.mitreData.concat([escalation.data])
+         	});
+                this.setState({
+		    mitreData: this.state.mitreData.concat([evasion.data])
+         	});
+                this.setState({
+		    mitreData: this.state.mitreData.concat([credential.data])
+         	});
+                this.setState({
+		    mitreData: this.state.mitreData.concat([discovery.data])
+         	});
+                this.setState({
+		    mitreData: this.state.mitreData.concat([lateral.data])
+         	});
+                this.setState({
+		    mitreData: this.state.mitreData.concat([collection.data])
+         	});
+                this.setState({
+		    mitreData: this.state.mitreData.concat([exfiltration.data])
+         	});
+                this.setState({
+		    mitreData: this.state.mitreData.concat([command.data])
+         	});
+                this.setState({
+		    mitreData: this.state.mitreData.concat([impact.data])
+         	});
+      }));
+
+     this.state.mitreData.map((col, i) => this.state.mitreData.map(row => row[i]))
+
 }
 
 showModal(mitreID){
@@ -120,6 +107,17 @@ hideModal(mitreID){
 }
 
 render(){
+  let arr = this.state.mitreData;
+  const maxLen = arr.reduce((max, {length}) => Math.max(max, length), 0);
+
+  let transArr = arr.reduce((r, a, i, { length }) => {
+        a.forEach((v, j) => {
+            r[j] = r[j] || new Array(length).fill('');
+            r[j][i] = v;
+        });
+        return r;
+    }, []);
+
   return (
 	  <div>
 
@@ -132,29 +130,35 @@ render(){
           onHide={() => this.hideModal("TA0002")}
           />
 
-          {
+          <Table striped bordered >
+          <thead bgcolor="#d3d3d3">
+          <tr>
+              {
               this.state.headerData.map(function(exp){
-                return [
+                  return [
 
-                    <div class="inlineblock">
-                      <Table striped bordered >
-                      <thead bgcolor="#d3d3d3">
+                          <th><a class="matrix-tactics-url" href="#" onClick={() => this.showModal(exp.ID)}>{exp.name}</a></th>
+                   ]  
+                  }, this)
+              }
+          </tr>
+          </thead>
+          <tbody>
+	  {
+              transArr.map(exp => {
+                return [
                       <tr>
-                          <th ><a class="matrix-tactics-url" href="#" onClick={() => this.showModal(exp.ID)}>{exp.name}</a></th>
-                      </tr>
-                      </thead>
-                      <tbody>
-			{ this.state[exp.ID + "Data"].map(function(data){
+			{exp.map(function(data){
 				return [
-                      <tr><td ><a class="technique-mapping" href="#" >{data.name}</a></td>
+		        <td class="cell"><a class="technique-mapping" href="#" >{data.name}</a></td>
+				]}, this)
+			}
                      </tr>
-				] }, this)}
-                     </tbody>
-                     </Table>
-                   </div>
 		]
               }, this)
-          }
+	  }
+                     </tbody>
+                     </Table>
 	  </div>
   );
 }
