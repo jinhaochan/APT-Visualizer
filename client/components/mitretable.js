@@ -35,6 +35,26 @@ componentWillReceiveProps(nextProps) {
 
 getData(ev, name){
 
+let url = 'https://cti-taxii.mitre.org/stix/collections/95ecc380-afe9-11e4-9b6c-751b66dd541e/objects';
+
+fetch(url, {
+        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        headers: {
+	    'Accept': 'application/vnd.oasis.stix+json; version=2.0'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+    })
+  .then(response => {
+    return response.json()
+  })
+  .then(data => {
+    // Work with JSON data here
+    console.log(response.json())
+  })
+  .catch(err => {
+    // Do something for an error here
+  })
+
     axios.all([
     axios.get('/getHeader'),
     axios.get('/getInitialAccess'),

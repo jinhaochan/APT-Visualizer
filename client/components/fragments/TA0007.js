@@ -5,9 +5,7 @@ import ReactDOM from 'react-dom';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-import logo from '../assets/TA0001.gif'
-
-class TA0001 extends React.Component {
+class TA0007 extends React.Component {
 
 render(){
   return (
@@ -22,15 +20,18 @@ render(){
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            TA0001 
+            TA0007 
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>Initial Access</h4>
+          <h4>Discovery</h4>
           <p>
-	  The initial access tactic represents the vectors adversaries use to gain an initial foothold within a network.
+	  Discovery consists of techniques that allow the adversary to gain knowledge about the system and internal network.
+
+	  When adversaries gain access to a new system, they must orient themselves to what they now have control of and what benefits operating from that system give to their current objective or overall goals during the intrusion. 
+	  
+	  The operating system provides many native tools that aid in this post-compromise information-gathering phase. 
           </p>
-	  <img src={logo} />
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={this.props.onHide}>Close</Button>
@@ -41,4 +42,4 @@ render(){
 }
 }
 
-export default TA0001;
+export default TA0007;

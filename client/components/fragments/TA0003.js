@@ -5,9 +5,7 @@ import ReactDOM from 'react-dom';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-import logo from '../assets/TA0001.gif'
-
-class TA0001 extends React.Component {
+class TA0003 extends React.Component {
 
 render(){
   return (
@@ -22,15 +20,16 @@ render(){
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            TA0001 
+            TA0003 
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>Initial Access</h4>
+          <h4>Persistence</h4>
           <p>
-	  The initial access tactic represents the vectors adversaries use to gain an initial foothold within a network.
+	  Persistence is any access, action, or configuration change to a system that gives an adversary a persistent presence on that system. 
+
+	  Usually, services and accesses are lost when an interruption happens in the system. Such interruptions include system reboot and loss of credentials
           </p>
-	  <img src={logo} />
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={this.props.onHide}>Close</Button>
@@ -41,4 +40,4 @@ render(){
 }
 }
 
-export default TA0001;
+export default TA0003;
