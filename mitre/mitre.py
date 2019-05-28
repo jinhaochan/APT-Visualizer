@@ -43,44 +43,34 @@ def write_to_file(filename, array):
         f.write("]")
 
 if __name__ == "__main__":
-    read_from_file = 1 
+    attack = pull_mitre()
 
-    if read_from_file:
-        with open("header_info.json", "r") as f:
-            tactic_data = json.load(f)
+    mitre_data = []
+    tactic_data = []
 
-        with open("mitre_info.json", "r") as f:
-            mitre_data = json.load(f)
+    for tech in attack["techniques"]:
+        mitre_data.append(tech)
 
-        tactics = {}
-        mitre_info = {}
+    for tactic in attack["tactics"]:
+        tactic_data.append(tactic)
 
-        for item in tactic_data:
-            tactic_name = item["name"].lower().replace(" ", "")
+    tactics = {}
+    mitre_info = {}
 
-            tactics[tactic_name] = item["external_references"][0]["external_id"]
-            mitre_info[tactic_name] = []
+    for item in tactic_data:
+        tactic_name = item["name"].lower().replace(" ", "_")
 
-        for technique in mitre_data:
-            for kill_chain in technique["kill_chain_phases"]:
-                tactic = kill_chain["phase_name"].replace("-","")
-                mitre_info[tactic].append(technique)
+        tactics[tactic_name] = item["external_references"][0]["external_id"]
+        mitre_info[tactic_name] = []
 
-        for tactic in tactics:
-            insert(mitre_info[tactic], tactic)
-    
-    else:
-        attack = pull_mitre()
+    for technique in mitre_data:
+        for kill_chain in technique["kill_chain_phases"]:
+            tactic = kill_chain["phase_name"].replace("-","_")
+            mitre_info[tactic].append(technique)
 
-        mitre_array = []
-        header_array = []
+    for tactic in tactics:
+        insert(mitre_info[tactic], tactic)
 
-        for tech in attack["techniques"]:
-            mitre_array.append(tech)
-
-        for header in attack["tactics"]:
-            header_array.append(header)
-
-        write_to_file("mitre_info.json", mitre_array)
-        write_to_file("header_info.json", header_array)
+        
+    insert(tactic_data, "mitre_tactics")
 

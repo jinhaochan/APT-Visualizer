@@ -157,7 +157,7 @@ render(){
               this.state.headerData.map(function(exp){
                   return [
 
-                          <th><a class="matrix-tactics-url" href="#" onClick={() => this.showModal(exp.ID)}>{exp.name}</a></th>
+                          <th><a class="matrix-tactics-url" href="#" onClick={() => this.showModal(exp.external_references.external_id)}>{exp.name}</a></th>
                    ]  
                   }, this)
               }

@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: false}));
 
-mongoose.connect('mongodb://user:password@localhost:27017/APT');
+mongoose.connect('mongodb://user:password@localhost:27017/mitre');
 
 app.use('/', router);
 

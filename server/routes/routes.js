@@ -18,7 +18,7 @@ router.get('/getHeader',function(req, res) {
    if (err)
     res.send(err);
    res.json(data);
- })
+ }).sort({"external_references.external_id" :1})
 });
 
 router.get('/getInitialAccess',function(req, res) {
@@ -26,7 +26,7 @@ router.get('/getInitialAccess',function(req, res) {
    if (err)
     res.send(err);
    res.json(data);
- })
+ }).sort({"external_references.external_id" :1})
 });
 
 router.get('/getExecution',function(req, res) {
@@ -34,7 +34,7 @@ router.get('/getExecution',function(req, res) {
    if (err)
     res.send(err);
    res.json(data);
- })
+ }).sort({"external_references.external_id" :1})
 });
 
 router.get('/getPersistence',function(req, res) {
@@ -42,7 +42,7 @@ router.get('/getPersistence',function(req, res) {
    if (err)
     res.send(err);
    res.json(data);
- })
+ }).sort({"external_references.external_id" :1})
 });
 
 router.get('/getPrivilegeEscalation',function(req, res) {
@@ -50,7 +50,7 @@ router.get('/getPrivilegeEscalation',function(req, res) {
    if (err)
     res.send(err);
    res.json(data);
- })
+ }).sort({"external_references.external_id" :1})
 });
 
 router.get('/getDefenseEvasion',function(req, res) {
@@ -58,7 +58,7 @@ router.get('/getDefenseEvasion',function(req, res) {
    if (err)
     res.send(err);
    res.json(data);
- })
+ }).sort({"external_references.external_id" :1})
 });
 
 router.get('/getCredentialAccess',function(req, res) {
@@ -66,7 +66,7 @@ router.get('/getCredentialAccess',function(req, res) {
    if (err)
     res.send(err);
    res.json(data);
- })
+ }).sort({"external_references.external_id" :1})
 });
 
 router.get('/getDiscovery',function(req, res) {
@@ -74,7 +74,7 @@ router.get('/getDiscovery',function(req, res) {
    if (err)
     res.send(err);
    res.json(data);
- })
+ }).sort({"external_references.external_id" :1})
 });
 
 router.get('/getLateralMovement',function(req, res) {
@@ -82,7 +82,7 @@ router.get('/getLateralMovement',function(req, res) {
    if (err)
     res.send(err);
    res.json(data);
- })
+ }).sort({"external_references.external_id" :1})
 });
 
 router.get('/getCollection',function(req, res) {
@@ -90,7 +90,7 @@ router.get('/getCollection',function(req, res) {
    if (err)
     res.send(err);
    res.json(data);
- })
+ }).sort({"external_references.external_id" :1})
 });
 
 router.get('/getExfiltration',function(req, res) {
@@ -98,15 +98,15 @@ router.get('/getExfiltration',function(req, res) {
    if (err)
     res.send(err);
    res.json(data);
- })
+ }).sort({"external_references.external_id" :1})
 });
 
 router.get('/getCommandControl',function(req, res) {
-  mitre['command_control'].find(function(err, data) {
+  mitre['command_and_control'].find(function(err, data) {
    if (err)
     res.send(err);
    res.json(data);
- })
+ }).sort({"external_references.external_id" :1})
 });
 
 router.get('/getImpact',function(req, res) {
@@ -114,7 +114,7 @@ router.get('/getImpact',function(req, res) {
    if (err)
     res.send(err);
    res.json(data);
- })
+ }).sort({"external_references.external_id" :1})
 });
 
 module.exports = router;
