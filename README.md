@@ -9,16 +9,13 @@ In the project directory, you can run:
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Importing data into mongo
+## Populating Mongo DB with MITRE data
 
-In the folder `mitre`, `mitre_info.json` stores all the mitre attacks.
+In the folder `mitre`, run 
 
-To import this json file to mongo, run the following command
+`python mitre.py`
 
-`mongoimport --db <dbName> --collection <collectionName> --file mitre_info.json`
+The python script will pull data from MITRE's TAXII server and obtain all the information in a STIX format before inserting them into Mongo DB.
 
-## Pulling of data
+There is one collection to hold the Tactic information, and multiple collections to hold each of the Techniques in a Tactic
 
-The mitre information is pulled using `mitre.py`, which calls the TAXII server, and massages the STIX file to a more useable format
-
-The results are then written to `mitre_info.json`
