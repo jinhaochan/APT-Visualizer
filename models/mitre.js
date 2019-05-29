@@ -1,96 +1,30 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var mitre_tactics = new Schema({
-  external_references: [{ external_id : String, 
-		source_name: String,
-		url: String}],
+var schema_skeleton = {
+  external_references: [{ external_id : String,
+                source_name: String,
+                url: String}],
+  description: String,
+  x_mitre_data_sources: [String],
+  x_mitre_detection: String,
+  x_mitre_platforms: [String],
   name: String,
-});
+}
 
-var initial_access = new Schema({
-  external_references: [{ external_id : String, 
-		source_name: String,
-		url: String}],
-  name: String,
-});
-
-var execution = new Schema({
-  external_references: [{ external_id : String, 
-		source_name: String,
-		url: String}],
-  name: String,
-});
-
-var persistence = new Schema({
-  external_references: [{ external_id : String, 
-		source_name: String,
-		url: String}],
-  name: String,
-});
-
-var privilege_escalation = new Schema({
-  external_references: [{ external_id : String, 
-		source_name: String,
-		url: String}],
-  name: String,
-});
-
-var defense_evasion = new Schema({
-  external_references: [{ external_id : String, 
-		source_name: String,
-		url: String}],
-  name: String,
-});
-
-var credential_access = new Schema({
-  external_references: [{ external_id : String, 
-		source_name: String,
-		url: String}],
-  name: String,
-});
-
-var discovery = new Schema({
-  external_references: [{ external_id : String, 
-		source_name: String,
-		url: String}],
-  name: String,
-});
-
-var lateral_movement = new Schema({
-  external_references: [{ external_id : String, 
-		source_name: String,
-		url: String}],
-  name: String,
-});
-
-var collection = new Schema({
-  external_references: [{ external_id : String, 
-		source_name: String,
-		url: String}],
-  name: String,
-});
-
-var command_and_control = new Schema({
-  external_references: [{ external_id : String, 
-		source_name: String,
-		url: String}],
-  name: String,
-});
-
-var exfiltration = new Schema({
-  external_references: [{ external_id : String, 
-		source_name: String,
-		url: String}],
-  name: String,
-});
-
-var impact = new Schema({
-  external_references: [{ external_id : String, 
-		source_name: String,
-		url: String}],
-  name: String,
-});
+var mitre_tactics = new Schema(schema_skeleton);
+var initial_access = new Schema(schema_skeleton);
+var execution = new Schema(schema_skeleton);
+var persistence = new Schema(schema_skeleton);
+var privilege_escalation = new Schema(schema_skeleton);
+var defense_evasion = new Schema(schema_skeleton);
+var credential_access = new Schema(schema_skeleton);
+var discovery = new Schema(schema_skeleton);
+var lateral_movement = new Schema(schema_skeleton);
+var collection = new Schema(schema_skeleton);
+var command_and_control = new Schema(schema_skeleton);
+var exfiltration = new Schema(schema_skeleton);
+var impact = new Schema(schema_skeleton);
 
 var mitre_tactics = mongoose.model('mitre_tactics', mitre_tactics, 'mitre_tactics');
 var initial_access = mongoose.model('initial_access', initial_access, 'initial_access');

@@ -111,6 +111,7 @@ fetch(url, {
 }
 
 showModal(mitreID){
+	console.log(mitreID);
 	this.setState({ [mitreID]: true });
 }
 
@@ -150,9 +151,9 @@ render(){
 		          </Modal.Title>
 		        </Modal.Header>
 		        <Modal.Body>
-		          <h4>Initial Access</h4>
+		          <h4>{exp.name}</h4>
 		          <p>
-		          The initial access tactic represents the vectors adversaries use to gain an initial foothold within a network.
+			  {exp.description}
 		          </p>
 		        </Modal.Body>
 		        <Modal.Footer>
@@ -166,6 +167,7 @@ render(){
 
           {
   	    this.state.mitreData.map(exp => {
+		    return [
 		  exp.map(data => {
 			  let id = data.external_references[0].external_id;
 			  return [
@@ -182,9 +184,9 @@ render(){
                           </Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                          <h4>Initial Access</h4>
+                          <h4>{data.name}</h4>
                           <p>
-                          The initial access tactic represents the vectors adversaries use to gain an initial foothold within a network.
+		            {data.description}
                           </p>
                         </Modal.Body>
                         <Modal.Footer>
@@ -195,6 +197,7 @@ render(){
 		            ]
 
 	    }, this)
+		    ]
 	  }, this)
 
 		 }
