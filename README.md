@@ -19,3 +19,28 @@ The python script will pull data from MITRE's TAXII server and obtain all the in
 
 There is one collection to hold the Tactic information, and multiple collections to hold each of the Techniques in a Tactic
 
+## Misc MongoDB operations
+
+This section is out of scope, but putting here because it is frequently used
+
+1. Dropping Database
+
+`use <database>`
+
+`db.dropDatabase()`
+
+2. Dropping Collection
+
+`use <database>`
+
+`db.<collection>.drop()`
+
+3. Adding user to the db
+
+```
+db.createUser(
+{	user: "user",
+	pwd: "password",
+
+	roles:[{role: "readWrite" , db:<database>}]})
+```
