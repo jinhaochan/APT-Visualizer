@@ -7,6 +7,8 @@ def pull_mitre():
     # Initialize dictionary to hold Enterprise ATT&CK content
     attack = {}
     tactics = {}
+    
+    print("Pulling data from MITRE TAXII server...")
 
     # Establish TAXII2 Collection instance for Enterprise ATT&CK collection
     url = "https://cti-taxii.mitre.org/stix/collections/95ecc380-afe9-11e4-9b6c-751b66dd541e/objects"
@@ -31,17 +33,6 @@ def pull_mitre():
 
     return attack
 
-def write_to_file(filename, array):
-    with open(filename, "w") as f:
-        f.write("[")
-
-        for idx, item in enumerate(array, start=1):
-            f.write("%s\n" % json.dumps(item))
-            if idx < len(array):
-                f.write(",")
-
-        f.write("]")
-
 if __name__ == "__main__":
     attack = pull_mitre()
 
@@ -57,11 +48,15 @@ if __name__ == "__main__":
     tactics = {}
     mitre_info = {}
 
+    print("Massaging data...")
+
     for item in tactic_data:
         tactic_name = item["name"].lower().replace(" ", "_")
 
         tactics[tactic_name] = item["external_references"][0]["external_id"]
         mitre_info[tactic_name] = []
+
+    print("Inserting data to MongoDB...")
 
     for technique in mitre_data:
         for kill_chain in technique["kill_chain_phases"]:
@@ -73,4 +68,6 @@ if __name__ == "__main__":
 
         
     insert(tactic_data, "mitre_tactics")
+
+    print("Done!")
 
