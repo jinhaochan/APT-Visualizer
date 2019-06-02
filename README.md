@@ -19,9 +19,21 @@ The python script will pull data from MITRE's TAXII server and obtain all the in
 
 There is one collection to hold the Tactic information, and multiple collections to hold each of the Techniques in a Tactic
 
+## TODO
+
+New functions:
+1. Users can enter new log sources, and detection rules within the log source.
+2. Users can select APT from the side bar, and relevant TTPs will be highlighted
+
+Fixes:
+1. <!> Formatting of the text in the modal popups
+
+Aesthetics:
+1. Sticky menu at the top when scrolling down
+
 ## Misc MongoDB operations
 
-This section is out of scope, but putting here because it is frequently used
+This section is out of scope, but putting here because they are frequently used
 
 1. Dropping Database
 
